@@ -1,4 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System.Xml;
+// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Basic Syntax of c-sharp");
 
 // basic var declaration, assignment, and operation
@@ -110,5 +111,23 @@ var price = 4.99M;
 var fruit = "Apples";
 var letterZ = 'Z';
 var happy = true;
+
+var xml1 = new XmlDocument();
+XmlDocument xml2 = new();
+
+var file1 = File.CreateText("something1");
+StreamWriter file2 = File.CreateText("something2");
+
+XmlDocument xml3 = new();
+
+Person kim = new(1967, 12, 26);
+
+class Person {
+	public DateTime BirthDate;
+
+	public Person(int year, int month, int day) {
+		
+	}
+}
 
 
