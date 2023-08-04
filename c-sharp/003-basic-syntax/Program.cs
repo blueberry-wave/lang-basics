@@ -87,3 +87,28 @@ if (c + d == 0.3M) {
 }
 
 Console.WriteLine($"episolon {double.Epsilon}");
+
+object height = 1.88;
+object name = "Amir";
+
+Console.WriteLine($"{name} is {height} meters tall.");
+
+// int length1 = name.Length;
+int length2 = ((string)name).Length;
+Console.WriteLine($"{name} has {length2} characters");
+
+
+dynamic something = "Saad";
+Console.WriteLine($"Length of dynamic string is {something.Length}");
+
+// inferring types f variables
+
+var population = 40_000_000UL;
+var deadPop = -40_000_000L;
+var weight = 1.88;
+var price = 4.99M;
+var fruit = "Apples";
+var letterZ = 'Z';
+var happy = true;
+
+
