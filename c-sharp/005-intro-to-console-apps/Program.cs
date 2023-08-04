@@ -1,5 +1,16 @@
 ﻿// using static System.Console;
 
+
+#define MYSYMBOL
+
+#if NET7_0_ANDROID
+// compilation steps for Android
+#elif NET7_0_IOS
+// compilation steps for IOS
+#else
+// generic compilation
+#endif
+
 WriteLine("intro to console applications");
 
 WriteLine($"There are  {args.Length} arguments");
@@ -33,7 +44,7 @@ try {
 	WriteLine("The current platform does not support changing the size of the cursor.");
 }
 
-if (OperatingSystme.IsWindows()) {
+if (OperatingSystem.IsWindows()) {
 	
 } else if (OperatingSystem.IsWindowsVersionAtLeast(major: 10)) {
 	
