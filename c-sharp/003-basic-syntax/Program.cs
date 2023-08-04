@@ -122,6 +122,12 @@ XmlDocument xml3 = new();
 
 Person kim = new(1967, 12, 26);
 
+Console.WriteLine($"default(int) = {default(int)}");
+Console.WriteLine($"default(bool) = {default(bool)}");
+Console.WriteLine($"default(DateTime) = {default(DateTime)}");
+Console.WriteLine($"default(string) = {default(string)}");
+
+
 class Person {
 	public DateTime BirthDate;
 
