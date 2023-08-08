@@ -17,12 +17,11 @@ int byteSizeOfInt = sizeof(int);
 
 x = 10;
 y = 6;
-WriteLine($"x = {x}");
-WriteLine($"y = {y}");
-WriteLine($"x & y = {x & y}");
-WriteLine($"x | y = {x | y}");
-WriteLine($"x ^ y = {x ^ y}");
-WriteLine($"x  =     | {ToBinaryString(x)}");
+WriteLine($"x = {x} \t\t{ToBinaryString(x)}");
+WriteLine($"y = {y} \t\t{ToBinaryString(y)}");
+WriteLine($"x & y = {x & y} \t{ToBinaryString(x & y)}");
+WriteLine($"x | y = {x | y} \t{ToBinaryString(x | y)}");
+WriteLine($"x ^ y = {x ^ y} \t{ToBinaryString(x ^ y)}");
 
 
 bool a = true;
@@ -53,3 +52,6 @@ static bool DoStuff() {
     WriteLine("I am doing stuff");
     return true;
 }
+
+WriteLine($"2 << 3 {2 << 3}");
+WriteLine($"8 >> 3 {8 >> 3}");
