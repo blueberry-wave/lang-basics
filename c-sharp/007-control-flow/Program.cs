@@ -37,6 +37,14 @@ WriteLine($"a && DoStuf()=  {a && DoStuff()}");
 
 WriteLine($"b && DoStuf()=  {b && DoStuff()}");
 
+float u = 11.0F;
+int v = 11;
+
+WriteLine($"float u = {u:N1} int v = {v:X}");
+WriteLine($"float first division 11/3 = {u/3}");
+WriteLine($"int first division v/3 = {v/3}");
+
+
 static string ToBinaryString(int val) {
     return Convert.ToString(val, toBase: 2).PadLeft(8, '0');
 }
