@@ -8,14 +8,14 @@ while (x < 10) {
     WriteLine(x++);
 }
 
-string? password;
+// string? password;
 
 // do {
 //     WriteLine("Enter your password: ");
 //     password = ReadLine();
 // } while (password != "PASSWORD");
 
-WriteLine($"{password} is the correct password!");
+// WriteLine($"{password} is the correct password!");
 
 string[] names = {"Saad", "Saud", "Khan"};
 
@@ -44,3 +44,28 @@ WriteLine("integer counter iterator");
 for (int i = 0; i < names2.Length; i ++) {
     WriteLine(names2[i]);
 }
+
+string[,] grid1 = new string[,] {
+    { "Alpha", "Beta", "Gamma", "Delta" },
+    { "Anne", "Ben", "Charlie", "Doug" },
+    { "Aardvark", "Bear", "Cat", "Dog" }
+};
+
+
+WriteLine($"lb of the first dimension is: {grid1.GetLowerBound(0)}");
+WriteLine($"ub of the first dimension is: {grid1.GetUpperBound(0)}");
+WriteLine($"lb of the second dimension is: {grid1.GetLowerBound(1)}");
+WriteLine($"ub of the second dimension is: {grid1.GetUpperBound(1)}");
+
+for (int row = 0; row <= grid1.GetUpperBound(0); row++) {
+    for (int col = 0; col < grid1.GetUpperBound(1); col++) {
+        WriteLine($"Row {row} Col {col} : {grid1[row,col]}");
+    }
+}
+
+// different init syntax
+string[,] grid2 = new string[10,10];
+
+WriteLine(grid2.Length);
+
+
