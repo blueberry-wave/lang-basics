@@ -68,4 +68,22 @@ string[,] grid2 = new string[10,10];
 
 WriteLine(grid2.Length);
 
+string[][] jaggedArr = new[] {
+    new[] {"Alpha", "Beta", "Gamma"},
+    new[] {"Anne", "Ben", "Charlie","Doug"},
+    new[] {"Aardvark", "Bear"}
+};
+
+WriteLine("upperbound of my jagged array is {0}", jaggedArr.GetUpperBound(0));
+
+for (int arrayIndex = 0; arrayIndex <= jaggedArr.GetUpperBound(0); arrayIndex++) {
+    WriteLine($"Upper bound of array {arrayIndex} is {jaggedArr[arrayIndex].GetUpperBound(0)} ");
+}
+
+for (int row = 0; row <= jaggedArr.GetUpperBound(0); row++) {
+    for (int col = 0; col <= jaggedArr[row].GetUpperBound(0); col++) {
+        WriteLine($"row {row}, col {col}: {jaggedArr[row][col]}");
+    }
+}
+
 
