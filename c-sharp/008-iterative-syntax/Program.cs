@@ -86,4 +86,32 @@ for (int row = 0; row <= jaggedArr.GetUpperBound(0); row++) {
     }
 }
 
+int[] seqNum = new int[] { 1, 2, 4, 5, 6, 7, 8, 9, 10};
+int[] twoNum = new int[] { 1, 2};
+int[] threNum = new int[] { 1, 2, 10};
+int[] fourNum = new int[] { 1, 2, 3, 10};
+int[] sixNum = new int[] { 1, 2, 3, 4, 5, 10};
+int[] primNum = new int[] { 1, 2, 3, 5, 7, 11, 13, 17, 19, 23,29};
+int[] fibNum = new int[] { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89};
+int[] emptyNum = new int[] {};
 
+WriteLine($"{nameof(seqNum)} : {CheckSwitch(seqNum)}");
+WriteLine($"{nameof(twoNum)} : {CheckSwitch(twoNum)}");
+WriteLine($"{nameof(threNum)} : {CheckSwitch(threNum)}");
+WriteLine($"{nameof(fourNum)} : {CheckSwitch(fourNum)}");
+WriteLine($"{nameof(sixNum)} : {CheckSwitch(sixNum)}");
+WriteLine($"{nameof(primNum)} : {CheckSwitch(primNum)}");
+WriteLine($"{nameof(fibNum)} : {CheckSwitch(fibNum)}");
+WriteLine($"{nameof(emptyNum)} : {CheckSwitch(emptyNum)}");
+
+static string CheckSwitch(int[] valArr) => valArr switch {
+    [] => "Empty arr",
+    [1, 2, _, 10] => "1,2, any single num, 10",
+    [1, 2, .., 10] => "1, 2, any sub-domain including empty, 10",
+    [1,2] => "1, 2",
+    [int val1, int val2, int val3] => $"Contains {val1}, {val2}, {val3}",
+    [0, _] => "Starts with 0, then any other number",
+    [0, ..] => "Starts with 0, then any subdomain including empty",
+    [2, .. int[] others] => $"Starts with 2, then {others.Length} more numbers",
+    [..] => "Any subdomain in any order"
+};
