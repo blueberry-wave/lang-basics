@@ -47,3 +47,28 @@ foreach(double n in doubles) {
 		arg1: Math.Round(value: n, digits: 0, mode: MidpointRounding.AwayFromZero)
 	);
 }
+
+int number = 12;
+WriteLine(number.ToString());
+
+bool boolean = true;
+WriteLine(boolean.ToString());
+DateTime now = DateTime.Now;
+WriteLine(now.ToString());
+object me = new();
+WriteLine(me.ToString());
+
+// alocate array
+byte[] binaryObject = new byte[128];
+
+Random.Shared.NextBytes(binaryObject);
+
+WriteLine("Binary Object as bytes");
+
+for(int index = 0; index < binaryObject.Length; index++) {
+	Write($"{binaryObject[index]:X}");
+}
+WriteLine();
+
+string encoded = ToBase64String(binaryObject);
+WriteLine($"Binary Object as Base 64: {encoded}");
