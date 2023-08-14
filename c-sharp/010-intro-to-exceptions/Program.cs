@@ -13,3 +13,18 @@ try {
 }
 
 WriteLine("post try-catch block");
+
+Write("Enter an amount: ");
+string amnt = ReadLine();
+
+if (string.IsNullOrEmpty(amnt)) return;
+
+try {
+	decimal amntVal = decimal.Parse(amnt);
+	WriteLine($"Amount formatted as currenc: {amntVal}");
+} catch (FormatException) when (amnt.Contains("$")) {
+	WriteLine("Amounts cannot use the dollar sign!");
+} catch (FormatException) {
+	WriteLine("Amounts must only contain digits!");
+}
+
