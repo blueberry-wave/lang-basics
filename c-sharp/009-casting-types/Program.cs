@@ -72,3 +72,19 @@ WriteLine();
 
 string encoded = ToBase64String(binaryObject);
 WriteLine($"Binary Object as Base 64: {encoded}");
+
+int age = int.Parse ("27");
+DateTime birthday = DateTime.Parse("4 July 1980");
+WriteLine($"I was born {age} years ago");
+WriteLine($"My birthday is {birthday}");
+WriteLine($"My birthday is {birthday:D}");
+
+// Try Parse
+Write("How many eggs are there?");
+string? input = ReadLine();
+
+if (int.TryParse(input, out int count)) {
+	WriteLine($"There are  {count} eggs.");
+} else {
+	WriteLine("I could not parse the input.");
+}
