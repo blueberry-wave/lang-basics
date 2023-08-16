@@ -17,3 +17,13 @@ function calculate(a, b, c) {
 }
 var calcVal = calculate(1, 2, 3);
 console.log(`calculate() = ${calcVal}`);
+let anyObj = "";
+anyObj = {
+    name: "Saad",
+    age: 26
+};
+let anyObj2 = {
+    name: "Saad",
+    age: 26
+};
+anyObj = null;

@@ -22,3 +22,19 @@ function calculate(a:number, b: number, c:number) {
 
 var calcVal = calculate(1,2,3)
 console.log(`calculate() = ${calcVal}`);
+
+let anyObj: any = "";
+
+anyObj = {
+  name: "Saad",
+  age: 26
+}
+
+let anyObj2 = <any> {
+  name: "Saad",
+  age: 26
+}
+
+anyObj = null;
+
+
