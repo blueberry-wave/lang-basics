@@ -16,3 +16,9 @@ let inferredObj = {
   age: 26
 }
 
+function calculate(a:number, b: number, c:number) {
+  return (a * b) + c;
+}
+
+var calcVal = calculate(1,2,3)
+console.log(`calculate() = ${calcVal}`);
