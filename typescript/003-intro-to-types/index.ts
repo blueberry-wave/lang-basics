@@ -39,3 +39,29 @@ anyObj = null;
 
 const constVal = "this should not be changed";
 // constVal = "updated";
+
+function printObject(obj: string | number) {
+  console.log(`obj = ${obj}`);
+}
+
+printObject(1);
+printObject("string value");
+
+
+function addWithTypeGuard(
+  arg1: string | number,
+  arg2: string | number
+) {
+  if (typeof arg1 === "number" && typeof arg2 === "number") {
+    console.log("arg 1 is of type string");
+    return arg1 + arg2;
+  }
+
+    console.log("one or both of arg1 and arg2 is a string and so will be treated as a string");
+  return arg1.toString() + arg2.toString();
+
+}
+
+console.log(` 1 + 2 = ${addWithTypeGuard(1,2)}`);
+console.log(` "1" + "2" = ${addWithTypeGuard("1","2")}`);
+console.log(` 1 + "2" = ${addWithTypeGuard(1,"2")}`);
