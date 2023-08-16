@@ -27,3 +27,5 @@ let anyObj2 = {
     age: 26
 };
 anyObj = null;
+const constVal = "this should not be changed";
+// constVal = "updated";

@@ -37,4 +37,5 @@ let anyObj2 = <any> {
 
 anyObj = null;
 
-
+const constVal = "this should not be changed";
+// constVal = "updated";
