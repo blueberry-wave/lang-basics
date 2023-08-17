@@ -65,3 +65,79 @@ function addWithTypeGuard(
 console.log(` 1 + 2 = ${addWithTypeGuard(1,2)}`);
 console.log(` "1" + "2" = ${addWithTypeGuard("1","2")}`);
 console.log(` 1 + "2" = ${addWithTypeGuard(1,"2")}`);
+
+type StringOrNumber = string | number;
+
+function addWithTypeAlias (
+  arg1: StringOrNumber,
+  arg2: StringOrNumber,
+) {
+  return arg1.toString() + arg2.toString();
+}
+
+enum DoorState {
+  Open,
+  Closed
+}
+
+function checkDoorState(state: DoorState) {
+  console.log(`enum value is: ${state}`)
+
+  switch (state) {
+    case DoorState.Open:
+      console.log("Door is Open");
+      break;
+    case DoorState.Closed:
+      console.log("Door is closed");
+      break;
+  }
+}
+
+checkDoorState(DoorState.Open);
+checkDoorState(DoorState.Closed);
+
+enum DoorStateString {
+  OPEN = "OPEN",
+  CLOSED = "CLOSED"
+}
+
+console.log(`OPEN = ${DoorStateString.OPEN}`);
+
+const enum DoorStateConst {
+  OPEN = 10,
+  CLOSED = 20
+}
+
+console.log(`const Closed = ${DoorStateConst.OPEN}`);
+
+let array = ["123", "456", "789"];
+
+delete array [0];
+
+for (let i = 0; i < array.length; i ++) {
+	console.log(`array[${i}] = ${array[i]}`);
+}
+
+function checkAndPrintElement(arrEl: string | undefined) {
+	if (arrEl === undefined) {
+		console.log(`invalid arr element`);
+	} else {
+		console.log(`vaid array alement: ${arrEl}`);
+	}
+}
+
+for (let i = 0; i < array.length; i ++ ) {
+	checkAndPrintElement(array[i]);
+}
+
+function printValues(a: number | null) {
+	console.log(`a = ${a}`);
+}
+
+printValues(1);
+printValues(null);
+
+const value : number = 10;
+const message: string = value > 10 ?
+	"value is larger than 10" : "value is 10 or less than 10";
+console.log(message);
