@@ -149,3 +149,67 @@ console.log(`aNum : ${aNum}`);
 console.log(`bStr : ${bStr}`);
 console.log(`cBool : ${cBool}`);
 
+// functions
+
+function concatValues(a: string, b: string) {
+  console.log(`a + b = ${a + b}`);
+}
+
+concatValues("first", "Second");
+// concatValues("third");
+
+function concantStrDefaults(a:string, b:string = "default") {
+  console.log(`a + b = ${a + b}`);
+}
+
+concantStrDefaults("first", "Second");
+concantStrDefaults("third");
+
+function testArgs(...args: string[] | number[]) {
+  for (var i = 0; i < args.length ; i ++) {
+    console.log(`argument[${i}] = ${args[i]}`);
+  }
+}
+
+testArgs(1);
+testArgs(1, 2);
+testArgs("1");
+testArgs("1", "2");
+
+function myCallback (text: string) : void {
+  console.log(`myCallback called with ${text}`);
+}
+
+function withCallbackArg (
+  message: string,
+  callbackFn: (text: string) => void
+) {
+  console.log(`withCallback called, message: ${message}`);
+  callbackFn(`${message} from withCallback`);
+}
+
+withCallbackArg("intial text", myCallback);
+// withCallbackArg("intial text", "not a function");
+
+function add (a: string, b: string) : string;
+function add (a: number, b: number) : number;
+function add (a: any, b: any) {
+  return a + b;
+}
+
+add("first", "second");
+add(1, 2);
+
+type AllowedStringValues = "one" | "two" | "three";
+type AllowedNumericValues = 1 | 20 | 7879;
+
+function withLiteral ( input:
+  AllowedStringValues | AllowedNumericValues
+) {
+  console.log(`called with: ${input}`);
+}
+
+withLiteral("one");
+withLiteral("two");
+withLiteral("three");
+withLiteral(1);

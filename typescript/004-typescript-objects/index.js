@@ -122,3 +122,43 @@ let { aNum, bStr, cBool } = complexObj;
 console.log(`aNum : ${aNum}`);
 console.log(`bStr : ${bStr}`);
 console.log(`cBool : ${cBool}`);
+// functions
+function concatValues(a, b) {
+    console.log(`a + b = ${a + b}`);
+}
+concatValues("first", "Second");
+// concatValues("third");
+function concantStrDefaults(a, b = "default") {
+    console.log(`a + b = ${a + b}`);
+}
+concantStrDefaults("first", "Second");
+concantStrDefaults("third");
+function testArgs(...args) {
+    for (var i = 0; i < args.length; i++) {
+        console.log(`argument[${i}] = ${args[i]}`);
+    }
+}
+testArgs(1);
+testArgs(1, 2);
+testArgs("1");
+testArgs("1", "2");
+function myCallback(text) {
+    console.log(`myCallback called with ${text}`);
+}
+function withCallbackArg(message, callbackFn) {
+    console.log(`withCallback called, message: ${message}`);
+    callbackFn(`${message} from withCallback`);
+}
+withCallbackArg("intial text", myCallback);
+function add(a, b) {
+    return a + b;
+}
+add("first", "second");
+add(1, 2);
+function withLiteral(input) {
+    console.log(`called with: ${input}`);
+}
+withLiteral("one");
+withLiteral("two");
+withLiteral("three");
+withLiteral(1);
