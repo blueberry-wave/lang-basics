@@ -251,3 +251,35 @@ namespace FirstNameSpace {
 
 let nameSpaceClass = new FirstNameSpace.NameSpaceClass();
 // let notExported = new FirstNameSpace.NotExportedClass();
+
+interface IBase {
+  id: number;
+}
+
+interface IDerivedFRomBase extends IBase {
+  name: string;
+}
+
+class IdNameClass implements IDerivedFRomBase {
+  id: number = 0;
+  name: string = "nameString";
+}
+
+interface IBaseStringOrNumber {
+  id: string| number;
+}
+
+interface IDerivedFromBaseNumber extends IBaseStringOrNumber {
+  id: number;
+}
+
+interface IMultiple extends IDerivedFRomBase, IDerivedFromBaseNumber {
+  description: string;
+}
+
+let multipleObject: IMultiple = {
+  id: 1,
+  name:"myName",
+  description: "myDescription"
+}
+

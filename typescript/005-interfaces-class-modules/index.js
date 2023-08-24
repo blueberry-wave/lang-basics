@@ -174,4 +174,14 @@ var FirstNameSpace;
     }
 })(FirstNameSpace || (FirstNameSpace = {}));
 let nameSpaceClass = new FirstNameSpace.NameSpaceClass();
-// let notExported = new FirstNameSpace.NotExportedClass();
+class IdNameClass {
+    constructor() {
+        this.id = 0;
+        this.name = "nameString";
+    }
+}
+let multipleObject = {
+    id: 1,
+    name: "myName",
+    description: "myDescription"
+};
