@@ -256,11 +256,11 @@ interface IBase {
   id: number;
 }
 
-interface IDerivedFRomBase extends IBase {
+interface IDerivedFromBase extends IBase {
   name: string;
 }
 
-class IdNameClass implements IDerivedFRomBase {
+class IdNameClass implements IDerivedFromBase {
   id: number = 0;
   name: string = "nameString";
 }
@@ -273,7 +273,7 @@ interface IDerivedFromBaseNumber extends IBaseStringOrNumber {
   id: number;
 }
 
-interface IMultiple extends IDerivedFRomBase, IDerivedFromBaseNumber {
+interface IMultiple extends IDerivedFromBase, IDerivedFromBaseNumber {
   description: string;
 }
 
@@ -283,3 +283,27 @@ let multipleObject: IMultiple = {
   description: "myDescription"
 }
 
+class BaseClass implements IBase {
+  id: number = 0;
+}
+
+class DerivedFromBaseClass
+  extends BaseClass
+  implements IDerivedFromBase {
+  name: string = "nameString";
+}
+
+interface IFirstInterface {
+  name: string;
+}
+
+interface ISecondInterface {
+  name: string;
+}
+
+class MultipleInterfaces implements
+  IFirstInterface,
+  ISecondInterface {
+  id: number = 0;
+  name: string = "nameString";  
+}

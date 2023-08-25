@@ -185,3 +185,20 @@ let multipleObject = {
     name: "myName",
     description: "myDescription"
 };
+class BaseClass {
+    constructor() {
+        this.id = 0;
+    }
+}
+class DerivedFromBaseClass extends BaseClass {
+    constructor() {
+        super(...arguments);
+        this.name = "nameString";
+    }
+}
+class MultipleInterfaces {
+    constructor() {
+        this.id = 0;
+        this.name = "nameString";
+    }
+}
