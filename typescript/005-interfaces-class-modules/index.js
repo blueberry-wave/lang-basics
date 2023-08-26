@@ -1,4 +1,27 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
     if (kind === "m") throw new TypeError("Private method is not writable");
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
@@ -6,6 +29,9 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
 var _ClassES6Private_id;
+Object.defineProperty(exports, "__esModule", { value: true });
+const Module1_1 = require("./modules/Module1");
+const Module2_1 = __importStar(require("./modules/Module2"));
 console.log('005-interfaces-classes-modules');
 let idObject = {
     id: 2,
@@ -202,3 +228,113 @@ class MultipleInterfaces {
         this.name = "nameString";
     }
 }
+class BaseClassWithCtor {
+    constructor(id) {
+        this.id = id;
+    }
+}
+class DerivedClassWithCtor extends BaseClassWithCtor {
+    constructor(id, name) {
+        super(id);
+        this.name = name;
+    }
+}
+class BaseClassWithFn {
+    print(text) {
+        console.log(`BaseClassWithFn.print() : ${text}`);
+    }
+}
+class DerivedClassFnOverride extends BaseClassWithFn {
+    print(text) {
+        console.log(`DerivedClassFnOverride.print() : ${text}`);
+    }
+}
+let derivedClassFnOverride = new DerivedClassFnOverride();
+derivedClassFnOverride.print("test");
+class DerivedClassFnCallthrough extends BaseClassWithFn {
+    print(text) {
+        super.print(`from DerivedClassFncallthrough: ${text}`);
+    }
+}
+class BaseClassProtected {
+    constructor(id) {
+        this.name = "";
+        this.id = id;
+    }
+}
+class AccessProtected extends BaseClassProtected {
+    constructor(id) {
+        super(id);
+        console.log(`base.id = ${this.id}`);
+        // console.log(`base.name = ${this.name}`);
+    }
+}
+let accessProtected = new AccessProtected(1);
+// accessProtected.id = 1;
+// accessProtected.name = "testName";
+class EmployeeBase {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+class OfficeWorker extends EmployeeBase {
+    doWork() {
+        console.log(`${this.name} is doing work`);
+    }
+}
+class OfficeManager extends OfficeWorker {
+    constructor() {
+        super(...arguments);
+        this.employees = [];
+    }
+    manageEmployees() {
+        super.doWork();
+        for (let employee of this.employees) {
+            employee.doWork();
+        }
+    }
+}
+let typescriptBlogger = new OfficeWorker(1, "TSBlogger");
+let rustBlogger = new OfficeWorker(2, "RustBlogger");
+let blogManager = new OfficeManager(3, "Kody");
+blogManager.employees.push(typescriptBlogger);
+blogManager.employees.push(rustBlogger);
+class A {
+}
+;
+class BfromA extends A {
+}
+;
+class CfromA extends A {
+}
+;
+class DfromC extends CfromA {
+}
+;
+console.log(`A is instance of A: ${new A() instanceof A}`);
+console.log(`BfromA is instance of A: ${new BfromA() instanceof A}`);
+console.log(`Bfrom A is instance of BfromA: ${new BfromA() instanceof BfromA}`);
+console.log(`CfromA is instance of BfromA: ${new CfromA() instanceof BfromA}`);
+console.log(`DfromC intance of CfromA: ${new DfromC() instanceof CfromA}`);
+console.log(`DfromC instance of A: ${new DfromC() instanceof A}`);
+class BaseInterfaceClass {
+    constructor() {
+        this.id = 0;
+    }
+    print() {
+        console.log(`this.id = ${this.id}`);
+    }
+}
+class ImplementsExt extends BaseInterfaceClass {
+    setId(id) {
+        this.id = id;
+    }
+}
+let mod1 = new Module1_1.Module1();
+mod1.print();
+let mod2 = new Module2_1.Module2();
+mod2.print();
+let mod1_2 = new Module1_1.Module1_2();
+let mod1_3 = new Module1_1.Module1_3();
+let modDefaultAdd = (0, Module2_1.default)(1, 2);

@@ -1,3 +1,6 @@
+import { Module1, Module1_2, Module1_3 } from "./modules/Module1";
+import DefaultAdd, { Module2 as Mod2 } from "./modules/Module2";
+import * as Module2Exp from "./modules/Module1";
 
 console.log('005-interfaces-classes-modules');
 
@@ -307,3 +310,139 @@ class MultipleInterfaces implements
   id: number = 0;
   name: string = "nameString";  
 }
+
+class BaseClassWithCtor {
+  private id: number;
+  constructor(id: number) {
+    this.id = id;
+  }
+}
+
+class DerivedClassWithCtor extends BaseClassWithCtor {
+  private name: string;
+  constructor(id: number, name:string) {
+    super(id);
+    this.name = name;
+  }
+}
+
+class BaseClassWithFn {
+  print(text: string) {
+    console.log(`BaseClassWithFn.print() : ${text}`);
+  }
+}
+
+class DerivedClassFnOverride extends
+  BaseClassWithFn {
+  print(text: string){
+    console.log(`DerivedClassFnOverride.print() : ${text}`);
+  }
+}
+
+let derivedClassFnOverride = new DerivedClassFnOverride();
+derivedClassFnOverride.print("test");
+
+class DerivedClassFnCallthrough extends
+  BaseClassWithFn {
+  print(text:string) {
+    super.print(`from DerivedClassFncallthrough: ${text}`);
+  }
+}
+
+class BaseClassProtected {
+  protected id: number; 
+  private name: string = "";
+  constructor(id:number ) {
+    this.id = id;
+  }
+}
+
+class AccessProtected extends
+  BaseClassProtected {
+  constructor(id:number) {
+    super(id);
+    console.log(`base.id = ${this.id}`);
+    // console.log(`base.name = ${this.name}`);
+  }
+}
+
+let accessProtected = new AccessProtected(1);
+// accessProtected.id = 1;
+// accessProtected.name = "testName";
+
+abstract class EmployeeBase {
+  public id: number;
+  public name: string;
+
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+
+  abstract doWork(): void;
+}
+
+class OfficeWorker extends EmployeeBase {
+  doWork() {
+    console.log(`${this.name} is doing work`);
+  }
+}
+
+class OfficeManager extends OfficeWorker {
+  public employees: OfficeWorker[] = [];
+
+  manageEmployees() {
+    super.doWork();
+    for (let employee of this.employees) {
+      employee.doWork();
+    }
+  }
+}
+
+let typescriptBlogger = new OfficeWorker(1,"TSBlogger");
+let rustBlogger = new OfficeWorker(2, "RustBlogger");
+let blogManager = new OfficeManager(3, "Kody");
+
+blogManager.employees.push(typescriptBlogger);
+blogManager.employees.push(rustBlogger);
+
+class A {};
+class BfromA extends A {};
+class CfromA extends A {};
+class DfromC extends CfromA {};
+
+console.log(`A is instance of A: ${new A() instanceof A}`);
+console.log(`BfromA is instance of A: ${new BfromA() instanceof A}`);
+console.log(`Bfrom A is instance of BfromA: ${new BfromA() instanceof BfromA}`);
+console.log(`CfromA is instance of BfromA: ${new CfromA() instanceof BfromA}`);
+console.log(`DfromC intance of CfromA: ${ new DfromC() instanceof CfromA}`);
+console.log(`DfromC instance of A: ${new DfromC() instanceof A}`);
+
+class BaseInterfaceClass {
+  id: number = 0;
+  print() {
+    console.log(`this.id = ${this.id}`);
+  }
+}
+
+interface IBaseInterfaceClassExt
+  extends BaseInterfaceClass {
+    setId(id: number): void;
+  }
+
+class ImplementsExt extends BaseInterfaceClass 
+  implements IBaseInterfaceClassExt {
+  setId(id: number): void {
+    this.id = id;
+  }
+}
+
+let mod1 = new Module1();
+mod1.print();
+let mod2 = new Mod2();
+mod2.print();
+
+let mod1_2 = new Module1_2();
+let mod1_3 = new Module1_3();
+
+let modDefaultAdd = DefaultAdd(1, 2);
