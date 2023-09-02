@@ -11,8 +11,5 @@
   "license": "ISC",
   "dependencies": {
     "underscore": "^1.13.6"
-  },
-  "devDependencies": {
-    "@types/underscore": "^1.11.9"
   }
 }
