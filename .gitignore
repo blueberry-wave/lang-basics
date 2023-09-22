@@ -1,2 +1,2 @@
-# ignore distributables
-**/bin/
+# ignore distributables in bin dir
+bin/
