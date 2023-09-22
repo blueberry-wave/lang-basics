@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"dotnet.defaultSolution": "007-control-flow.sln"
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": []
+	}
+}
