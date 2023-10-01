@@ -1,3 +1,3 @@
-# lang-basics
+# Basic Exercises for Language Syntax
 
-This repo contains exercises for exploring new language syntax.
+This repository has been archived in favour of language specific respositories.
